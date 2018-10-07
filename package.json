@@ -1,0 +1,19 @@
+{
+    "name": "sisgeorem-backend-server",
+    "version": "1.0.0",
+    "description": "Backend server del Sistema Georeferencial para Situaciones de Emergencias",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app.js",
+        "nodemon": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Claudia Benitez",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.3",
+        "mysql": "^2.16.0",
+        "nodemon": "^1.18.4"
+    }
+}
