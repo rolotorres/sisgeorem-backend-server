@@ -1,35 +1,36 @@
-require('../config/config');
+// require('../config/config');
 
-let userModel = {};
+// let userModel = {};
 
-// Obtenemos todas las personas
-userModel.getUsers = (callback) => {
-    if (connection) {
-        connection.query('SELECT * FROM usuarios', (err, rows) => {
-            if (err) {
-                throw err;
-            } else {
-                callback(null, rows);
-            }
-        })
-    }
-};
+// // Obtenemos todas los usuarios
+// userModel.getUsers = (callback) => {
+//     if (connection) {
+//         connection.query('SELECT * FROM usuarios', (err, rows) => {
+//             if (err) {
+//                 throw err;
+//             } else {
+//                 callback(null, rows);
+//             }
+//         })
+//     }
+// };
 
-// Insertamos nuevas personas
-userModel.insertPers = (persData, callback) => {
-    if (connection) {
-        var sql = `INSERT INTO persona SET ?`
-        connection.query(sql, persData, (err, result) => {
-            if (err) {
-                throw err;
-            } else {
-                callback(null, {
-                    ok: true,
-                    persona: persData
-                })
-            }
-        })
-    }
-}
 
-module.exports = userModel;
+// // Insertamos nuevos usuarios
+// userModel.insertUser = (userData, callback) => {
+//     if (connection) {
+//         var sql = `INSERT INTO usuario SET ?`
+//         connection.query(sql, userData, (err, result) => {
+//             if (err) {
+//                 throw err;
+//             } else {
+//                 callback(null, {
+//                     ok: true,
+//                     usuario: userData
+//                 })
+//             }
+//         })
+//     }
+// }
+
+// module.exports = userModel;
