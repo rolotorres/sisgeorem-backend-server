@@ -24,7 +24,7 @@ var appRoutes = require('./routes/app');
 var ciudadRoutes = require('./routes/ciudad');
 var personaRoutes = require('./routes/persona');
 var usuariosRoutes = require('./routes/usuario');
-// var tipoRoutes = require('./routes/tipoEmergencia');
+var tipoRoutes = require('./routes/tipoEmergencia');
 
 
 // Conexión a la base de datos
@@ -37,5 +37,5 @@ app.listen(port, () => {
 app.use('/usuario', usuariosRoutes);
 app.use('/persona', personaRoutes);
 app.use('/ciudad', ciudadRoutes);
-// app.use('/tipo', tipoRoutes);
+app.use('/tipo', tipoRoutes);
 app.use('/', appRoutes);

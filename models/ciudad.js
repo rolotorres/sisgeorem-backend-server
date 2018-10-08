@@ -55,7 +55,7 @@ cityModel.updateCity = (cityData, callback) => {
 };
 
 
-// Desactivamos personas
+// Borramos ciudades
 cityModel.deleteCity = (id_ciudad, callback) => {
     if (connection) {
         var sql = `DELETE FROM ciudad WHERE id_ciudad = ${id_ciudad}`;
