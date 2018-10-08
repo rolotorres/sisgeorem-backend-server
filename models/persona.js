@@ -63,7 +63,7 @@ persModel.updatePers = (persData, callback) => {
 };
 
 
-// Desactivamos personas
+// Borramos una persona
 persModel.deletePers = (ci_num_persona, callback) => {
     if (connection) {
         var sql = `DELETE FROM persona WHERE ci_num_persona = ${ci_num_persona}`;
