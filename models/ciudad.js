@@ -2,7 +2,7 @@ require('../config/config');
 
 let cityModel = {};
 
-// Obtenemos todas las personas
+// Obtenemos todas las ciudades
 cityModel.getCity = (callback) => {
     if (connection) {
         connection.query('SELECT * FROM ciudad', (err, rows) => {

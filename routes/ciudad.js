@@ -37,7 +37,7 @@ app.post('/', (req, res) => {
             res.status(201).json({
                 ok: true,
                 ciudad: data
-            })
+            });
         } else {
             return res.status(400).json({
                 ok: false,
@@ -58,7 +58,7 @@ app.put('/:id_ciudad', (req, res) => {
 
     Ciudad.updateCity(cityData, (err, data) => {
         if (data) {
-            res.status(201).json({
+            res.status(200).json({
                 ok: true,
                 mensaje: 'Datos de la ciudad actualizados correctamente',
                 ciudad: data
@@ -76,7 +76,7 @@ app.put('/:id_ciudad', (req, res) => {
 app.delete('/:id_ciudad', (req, res) => {
     Ciudad.deleteCity(req.params.id_ciudad, (err, data) => {
         if (data && data.mensaje === 'Ciudad eliminada' || data.mensaje === 'Ocurrio un error') {
-            res.status(201).json({
+            res.status(200).json({
                 ok: true,
                 ciudad: data
             });

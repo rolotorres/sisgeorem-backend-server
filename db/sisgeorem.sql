@@ -5,6 +5,8 @@ USE sisgeorem;
 CREATE TABLE IF NOT EXISTS `ciudad`(
     `id_ciudad` INTEGER NOT NULL AUTO_INCREMENT,
     `descripcion` VARCHAR(100),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(`id_ciudad`)
 );
 
@@ -28,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `persona`(
 CREATE TABLE IF NOT EXISTS `tipo_emergencia`(
     `id_tipo_emergencia` INTEGER NOT NULL AUTO_INCREMENT,
     `descripcion` VARCHAR(100) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id_tipo_emergencia`)
 );
 
@@ -35,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario`(
     `id_tipo_usuario` INTEGER NOT NULL,
     `categoria` VARCHAR(100),
     `descripcion` VARCHAR(100),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id_tipo_usuario`)
 );
 
@@ -47,6 +53,8 @@ CREATE TABLE IF NOT EXISTS `entidad`(
     `lat` VARCHAR(100),
     `lgn` VARCHAR(100),
     ``,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id_entidad`),
     FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`id_ciudad`)
 );
@@ -57,6 +65,8 @@ CREATE TABLE IF NOT EXISTS `entidad_emergencia`(
     `id_entidad` INTEGER NOT NULL,
     ``,
     `descripcion` VARCHAR(50) DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY `id_usuario` REFERENCES `usuario` (`id_usuario`),
     FOREIGN KEY `id_emergencia` REFERENCES `emergencia` (`id_emergencia`),
     FOREIGN KEY `id_entidad` REFERENCES `entidad` (`id_entidad`)
@@ -66,20 +76,10 @@ CREATE TABLE IF NOT EXISTS `prioridad`(
     `id_prioridad` INTEGER NOT NULL,
     `id_tipo_emergencia` INTEGER NOT NULL,
     `descripcion` VARCHAR(100),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(`id_prioridad`),
     FOREIGN KEY `id_tipo_emergencia` REFERENCES `tipo_emergencia` (`id_tipo_emergencia`)
-);
-
-CREATE TABLE IF NOT EXISTS `usuarios`(
-    `id_usuario` INTEGER NOT NULL,
-    `id_tipo_usuario` INTEGER NOT NULL,
-    `id_persona` INTEGER NOT NULL,
-    `id_ciudad` INTEGER NOT NULL,
-    `user` VARCHAR(20) NOT NULL,
-    `password` INTEGER NOT NULL,
-    PRIMARY KEY(`id_usuario`),
-    FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id_persona`),
-    FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipo_usuario` (`id_tipo_usuario`)
 );
 
 CREATE TABLE IF NOT EXISTS `emergencia`(
@@ -94,6 +94,8 @@ CREATE TABLE IF NOT EXISTS `emergencia`(
     `TELEFONO1`
     `TELEFONO2`
     `descripcion` VARCHAR(250) DEFAULT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `update_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id_emergencia`),
     FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
     FOREIGN KEY (`id_ciudad`) REFERENCES `ciudad` (`id_ciudad`),
